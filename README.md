@@ -33,7 +33,9 @@ El proyecto además incluye configuraciones para Eslint y Prettier, las cuales a
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
+## Configuración
 
+Copiar el archivo .env.example a .env y configurarlo con la URL correcta para el Backend, por defecto este es el puerto 8080
 ## Ejecución
 
 ```bash
