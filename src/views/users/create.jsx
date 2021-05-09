@@ -13,6 +13,7 @@ export default function create() {
 			const response = await createUser(state);
 			history.push(`/users/${response.data.id}`);
 		} catch (error) {
+			console.log(error);
 			alert("A ocurrido un error al actualizar");
 		}
 	};

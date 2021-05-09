@@ -1,18 +1,25 @@
 import axios from "axios";
 
-const deleteUser = async (id) =>
-	axios.delete(`${process.env.REACT_APP_BACKEND_URL}/users/${id}`);
-
 const updateUser = async (id, data) =>
-	axios.patch(`${process.env.REACT_APP_BACKEND_URL}/users/${id}`, data);
+	axios
+		.put(`${process.env.REACT_APP_BACKEND_URL}/users/${id}`, data);
 
 const createUser = async (data) =>
-	axios.post(`${process.env.REACT_APP_BACKEND_URL}/users`, data);
+	axios
+		.post(`${process.env.REACT_APP_BACKEND_URL}/users`, data);
 
-const getAllUsers = async () => axios.post(`${process.env.REACT_APP_BACKEND_URL}/users`);
+const deleteUser = async (id) =>
+	axios.delete(`${process.env.REACT_APP_BACKEND_URL}/users/${id}`).then(res => res.data);
 
-const getUser = async (id) =>
-	axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/${id}`);
+const getAllUsers = () =>
+	axios
+		.get(`${process.env.REACT_APP_BACKEND_URL}/users`)
+		.then((res) => res.data);
+
+const getUser = (id) =>
+	axios
+		.get(`${process.env.REACT_APP_BACKEND_URL}/users/${id}`)
+		.then((res) => res.data);
 
 // eslint-disable-nextline
 export { deleteUser, updateUser, createUser, getAllUsers, getUser };

@@ -7,8 +7,11 @@ import { getUser } from "../../repositories/user";
 export default function show() {
 	const { id } = useParams();
 
-	const { data, error } = useSWR(id, getUser);
-
+	const { data, error } = useSWR(id, {
+		fetcher: getUser,
+		initialData: [],
+		revalidateOnMount: true,
+	});
 	return (
 		<div className="container">
 			<table className="table">
