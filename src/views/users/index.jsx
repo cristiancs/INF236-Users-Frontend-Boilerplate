@@ -8,7 +8,11 @@ import DeleteForm from "../../components/DeleteForm";
 import { deleteUser, getAllUsers } from "../../repositories/user";
 
 export default function index() {
-	const { data, error } = useSWR("", getAllUsers);
+	const { data, error } = useSWR("/users/all", {
+		fetcher: getAllUsers,
+		initialData: [],
+		revalidateOnMount: true,
+	});
 
 	const tbody = [];
 
