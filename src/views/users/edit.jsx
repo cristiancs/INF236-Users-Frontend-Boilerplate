@@ -8,7 +8,12 @@ export default function edit() {
 	const history = useHistory();
 	const { id } = useParams();
 
-	const { data, error } = useSWR(id, getUser);
+	const { data, error } = useSWR(id, {
+		fetcher: getUser,
+		initialData: { nombre: '', email: '' },
+		revalidateOnMount: true,
+	});
+
 	const [state, setstate] = useState(data);
 
 	const submitForm = async (e) => {

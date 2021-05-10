@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types"; // ES6
+import { mutate } from 'swr';
 
 export default function DeleteForm({ id, callback }) {
 	const deleteUser = async (e) => {
 		e.preventDefault();
 		try {
 			await callback(id);
+			mutate("/users/all");
 			alert("Elemento recargado correctamente");
 		} catch (error) {
 			alert("A ocurrido un error al borrar el elemento");
